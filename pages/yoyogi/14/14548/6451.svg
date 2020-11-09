@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" height="512" width="512" viewBox="0 0 512 512">
+	<style type="text/css">
+		.class_path_road {fill: none; stroke: #000000; stroke-width: 2;}
+		.class_text_busstop {font-size: 16; line-height: 1;}
+	</style>
+	<defs>
+		<circle id="cy" cx="0" cy="0" r="4" style="fill: #FFFF00; stroke: #000000; stroke-width: 2;"/>
+	</defs>
+	<g>
+		<path class="class_path_road" d="M 396,516 L 404,508 L 408,504 L 428,492 L 440,480"/>
+	</g>
+	<g>
+		<use xlink:href="#cy" x="440" y="480"/>
+	</g>
+	<g>
+		<text class="class_text_busstop" x="320" y="464">幡ヶ谷</text>
+		<text class="class_text_busstop" x="320" y="480">代々幡町幡ヶ谷</text>
+	</g>
+</svg>

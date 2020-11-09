@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" height="512" width="512" viewBox="0 0 512 512">
+	<style type="text/css">
+		.class_path_road {fill: none; stroke: #000000; stroke-width: 2;}
+		.class_text_busstop {font-size: 16; line-height: 1;}
+	</style>
+	<defs>
+		<circle id="cy" cx="0" cy="0" r="4" style="fill: #FFFF00; stroke: #000000; stroke-width: 2;"/>
+	</defs>
+	<g>
+		<path class="class_path_road" d="M -4,320 L 4,324 L 56,348 L 80,344 L 96,344 L 140,364 L 160,376 L 176,384 L 204,428 L 248,496 L 320,456 L 344,440 L 388,420 L 452,448 L 476,448"/>
+		<path class="class_path_road" d="M 388,420 L 304,304 L 280,260 L 256,224 L 224,176 L 188,160 L 168,152 L 160,144 L 156,136 L 156,132 L 168,108 L 160,104 L 156,112 L 152,116 L 116,128 L 108,128 L 84,112 L 72,108 L 60,116 "/>
+	</g>
+	<g>
+		<use xlink:href="#cy" x="80" y="344"/>
+		<use xlink:href="#cy" x="160" y="376"/>
+		<use xlink:href="#cy" x="204" y="428"/>
+		<use xlink:href="#cy" x="248" y="496"/>
+		<use xlink:href="#cy" x="320" y="456"/>
+		<use xlink:href="#cy" x="388" y="420"/>
+		<use xlink:href="#cy" x="476" y="448"/>
+		<use xlink:href="#cy" x="60" y="116"/>
+		<use xlink:href="#cy" x="168" y="108"/>
+		<use xlink:href="#cy" x="188" y="160"/>
+		<use xlink:href="#cy" x="256" y="224"/>
+		<use xlink:href="#cy" x="304" y="304"/>
+	</g>
+	<g>
+		<text class="class_text_busstop" x="80" y="336">二ツ橋</text>
+		<text class="class_text_busstop" x="160" y="368">？圖書館脇</text>
+		<text class="class_text_busstop" x="204" y="420">松ノ木下</text>
+		<text class="class_text_busstop" x="256" y="508">農大正門前</text>
+		<text class="class_text_busstop" x="328" y="468">荒木山下</text>
+		<text class="class_text_busstop" x="396" y="416">大向</text>
+		<text class="class_text_busstop" x="448" y="468">澁谷驛前</text>
+		<text class="class_text_busstop" x="448" y="484">澁谷</text>
+		<text class="class_text_busstop" x="8" y="144">代々幡町代々木西原</text>
+		<text class="class_text_busstop" x="176" y="100">八幡下</text>
+		<text class="class_text_busstop" x="176" y="116">代々木八幡下</text>
+		<text class="class_text_busstop" x="196" y="160">代々木本村</text>
+		<text class="class_text_busstop" x="264" y="224">富ヶ谷（井上馬場下）</text>
+		<text class="class_text_busstop" x="312" y="304">澁谷深町</text>
+	</g>
+</svg>
