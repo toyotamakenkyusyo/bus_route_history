@@ -219,142 +219,50 @@
 			<div id="div_1" style="position: relative; height: 1536px;"></div>
 			<div id="div_2" style="position: relative; height: 1536px;"></div>
 		</figure>
+		<script>
+		//<![CDATA[
 		
-		<script type="text/javascript">
-			var inner_content = "";
-			var inner_html = "div_1";
-			
-			var x_start = 29096;
-			var x_end = 29099;
-			var y_start = 12902;
-			var y_end = 12907;
-			var z = 15;
-			var size = 256;
-			var x_size = size;
-			var y_size = size;
-			var data_url = "http://cyberjapandata.gsi.go.jp/xyz/std/";
-			var file_type = "png";
-			var mine_type = "image/png"
-			var image_opacity = "0.5";
-
-			var x_order = 1;
-			for (x_order = 1; x_order &lt;= x_end - x_start + 1; x_order = x_order + 1){
-			var y_order = 1;
-			for (y_order = 1; y_order &lt;= y_end - y_start + 1; y_order = y_order + 1){
-			var x_url = x_start - 1 + x_order;
-			var y_url = y_start - 1 + y_order;
-			var x_left = x_size * (x_order - 1);
-			var y_top = y_size * (y_order - 1);
-
-			inner_content = inner_content + "&lt;img src='" + data_url + z + "/" + x_url + "/" + y_url + "." + file_type + "' style='position: absolute; left: " + x_left + "px; top: " + y_top + "px;opacity: " + image_opacity + ";' /&gt;"
-			
-			}}
-			
-			document.getElementById(inner_html).innerHTML = document.getElementById(inner_html).innerHTML + inner_content;
 		
+const c_settings = [
+	{"x_min": 29096, "x_max": 29099, "x_direction": "wte", "y_min": 12902, "y_max": 12907, "y_direction": "nts", "zoom_level": 15, "tile_size": 256, "url": "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", "opacity": 0.5},
+	{"x_min": 14548, "x_max": 14549, "x_direction": "wte", "y_min": 6451, "y_max": 6453, "y_direction": "nts", "zoom_level": 14, "tile_size": 512, "url": "{z}/{x}/{y}.svg", "opacity": 1},
+	{"x_min": 29096, "x_max": 29099, "x_direction": "wte", "y_min": 19860, "y_max": 19865, "y_direction": "stn", "zoom_level": 15, "tile_size": 256, "url": "https://sv53.wadax.ne.jp/~ktgis-net/kjmapw/kjtilemap/tokyo50/01/{z}/{x}/{y}.png", "opacity": 0.5}
+];
+
+
+document.getElementById("div_1").appendChild(f_make_tile_map(c_settings[0]));
+document.getElementById("div_1").appendChild(f_make_tile_map(c_settings[1]));
+document.getElementById("div_2").appendChild(f_make_tile_map(c_settings[2]));
+document.getElementById("div_2").appendChild(f_make_tile_map(c_settings[1]));
+
+function f_make_tile_map(a_settings) {
+	const c_div = document.createElement("div");
+	c_div.style.position = "relative";
+	c_div.style.opacity = a_settings["opacity"];
+	c_div.style.height = (a_settings["y_max"] - a_settings["y_min"] + 1) * a_settings["tile_size"];
+	for (let i1 = a_settings["x_min"]; i1 <= a_settings["x_max"]; i1++) {
+		for (let i2 = a_settings["y_min"]; i2 <= a_settings["y_max"]; i2++) {
+			const c_object = document.createElement("object");
+			c_object.setAttribute("data", a_settings["url"].replace("{z}", a_settings["zoom_level"]).replace("{x}", String(i1)).replace("{y}", String(i2)));
+			c_object.style.position = "absolute";
+			if (a_settings["x_direction"] === "etw") { //東から西（逆）
+				c_object.style.left = String((a_settings["x_max"] - i1) * a_settings["tile_size"]) + "px";
+			} else {
+				c_object.style.left = String((i1 - a_settings["x_min"]) * a_settings["tile_size"]) + "px";
+			}
+			if (a_settings["y_direction"] === "stn") { //南から北（逆）
+				c_object.style.top = String((a_settings["y_max"] - i2) * a_settings["tile_size"]) + "px";
+			} else {
+				c_object.style.top = String((i2 - a_settings["y_min"]) * a_settings["tile_size"]) + "px";
+			}
+			c_div.appendChild(c_object);
+		}
+	}
+	return c_div;
+}
+		//]]>
 		</script>
-		
-		<script type="text/javascript">
-			var inner_content = "";
-			var inner_html = "div_1";
-			
-			var x_start = 14548;
-			var x_end = 14549;
-			var y_start = 6451;
-			var y_end = 6453;
-			var z = 14;
-			var size = 512;
-			var x_size = size;
-			var y_size = size;
-			var data_url = "../yoyogi/";
-			var file_type = "svg";
-			var mine_type = "image/svg+xml";
-			var image_opacity = "1";
 
-			var x_order = 1;
-			for (x_order = 1; x_order &lt;= x_end - x_start + 1; x_order = x_order + 1){
-			var y_order = 1;
-			for (y_order = 1; y_order &lt;= y_end - y_start + 1; y_order = y_order + 1){
-			var x_url = x_start - 1 + x_order;
-			var y_url = y_start - 1 + y_order;
-			var x_left = x_size * (x_order - 1);
-			var y_top = y_size * (y_order - 1);
-
-			inner_content = inner_content + "&lt;object type='" + mine_type + "' data='" + data_url + z + "/" + x_url + "/" + y_url + "." + file_type + "' style='position: absolute; left: " + x_left + "px; top: " + y_top + "px;opacity: " + image_opacity + ";' &gt;" + "&lt;/object&gt;"
-			
-			}}
-			
-			document.getElementById(inner_html).innerHTML = document.getElementById(inner_html).innerHTML + inner_content;
-		
-		</script>
-		
-		<script type="text/javascript">
-			var inner_content = "";
-			var inner_html = "div_2";
-			
-			var x_start = 29096;
-			var x_end = 29099;
-			var y_start = 19865;
-			var y_end = 19860;
-			var z = 15;
-			var size = 256;
-			var x_size = size;
-			var y_size = size;
-			var data_url = "http://ktgis.net/kjmapw/kjtilemap/tokyo50/01/";
-			var file_type = "png";
-			var file_type = "png";
-			var image_opacity = "0.5";
-
-			var x_order = 1;
-			for (x_order = 1; x_order &lt;= x_end - x_start + 1; x_order = x_order + 1){
-			var y_order = 1;
-			for (y_order = 1; y_order &lt;= y_start - y_end + 1; y_order = y_order + 1){
-			var x_url = x_start - 1 + x_order;
-			var y_url = y_start + 1 - y_order;
-			var x_left = x_size * (x_order - 1);
-			var y_top = y_size * (y_order - 1);
-
-			inner_content = inner_content + "&lt;img src='" + data_url + z + "/" + x_url + "/" + y_url + "." + file_type + "' style='position: absolute; left: " + x_left + "px; top: " + y_top + "px;opacity: " + image_opacity + ";' /&gt;"
-			
-			}}
-			
-			document.getElementById(inner_html).innerHTML = document.getElementById(inner_html).innerHTML + inner_content;
-		
-		</script>
-		
-		<script type="text/javascript">
-			var inner_content = "";
-			var inner_html = "div_2";
-			
-			var x_start = 14548;
-			var x_end = 14549;
-			var y_start = 6451;
-			var y_end = 6453;
-			var z = 14;
-			var size = 512;
-			var x_size = size;
-			var y_size = size;
-			var data_url = "../yoyogi/";
-			var file_type = "svg";
-			var mine_type = "image/svg+xml";
-			var image_opacity = "1";
-
-			var x_order = 1;
-			for (x_order = 1; x_order &lt;= x_end - x_start + 1; x_order = x_order + 1){
-			var y_order = 1;
-			for (y_order = 1; y_order &lt;= y_end - y_start + 1; y_order = y_order + 1){
-			var x_url = x_start - 1 + x_order;
-			var y_url = y_start - 1 + y_order;
-			var x_left = x_size * (x_order - 1);
-			var y_top = y_size * (y_order - 1);
-
-			inner_content = inner_content + "&lt;object type='" + mine_type + "' data='" + data_url + z + "/" + x_url + "/" + y_url + "." + file_type + "' style='position: absolute; left: " + x_left + "px; top: " + y_top + "px;opacity: " + image_opacity + ";' &gt;" + "&lt;/object&gt;"
-			
-			}}
-			
-			document.getElementById(inner_html).innerHTML = document.getElementById(inner_html).innerHTML + inner_content;
-		
-		</script>
 		<h2>註</h2>
 		<section>
 			<h3 id="note_0_2">[註0_2]</h3>
